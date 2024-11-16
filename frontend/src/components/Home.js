@@ -12,26 +12,31 @@ export default function Home() {
   //     navigate("/login");
   //   }
   // }, [navigate]);
+const filteredData = dataList.filter(
+  (data) => data.energy_savings.savings_percent > 0
+);
+
+console.log(filteredData);
 
 
   const chartData = {
-    labels: dataList.map((data) => {
+    labels: filteredData.map((data) => {
       let date = new Date(data.createdAt.$date);
       return date.toLocaleDateString("en-US", {
         year: "numeric",
-        month: "long", 
-        day: "numeric", 
+        month: "long",
+        day: "numeric",
       });
-    }), 
+    }),
     datasets: [
       {
         label: "Energy Saving Mode ON",
-        data: [1000, 1000, 1000, 800, 900, 1200, 1100], // Data for "ON"
+        data: filteredData.map((data) => data.total_kwh), // Data for "ON"
         backgroundColor: "rgba(54, 162, 235, 0.8)", // Blue color
       },
       {
         label: "Energy Saving Mode OFF",
-        data: [3000, 3000, 3000, 2500, 2700, 2800, 2900], // Data for "OFF"
+        data: filteredData.map((data) => data.energy_savings.savings_percent), // Data for "OFF"
         backgroundColor: "rgba(153, 102, 255, 0.6)", // Light purple color
       },
     ],
