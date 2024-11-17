@@ -10,12 +10,14 @@ export default function About() {
 
       <main className="container my-5">
         <section className="mb-5">
-          <h2>Employee-Management</h2>
+          <h2>Energy Consumption Chart</h2>
           <p>
-            "This project is a dynamic web application that integrates a user
-            management system with CRUD operations, user authentication, and an
-            interactive interface, allowing users to manage their profiles and
-            view data seamlessly."
+            This project involves creating an authenticated chart for
+            visualizing energy consumption (total_kwh) over time (createdAt)
+            using data from a JSON file. Users must log in to access the chart,
+            ensuring secure data handling. The project emphasizes
+            authentication, dynamic data visualization, and real-time
+            interaction for meaningful energy consumption insights.
           </p>
         </section>
 

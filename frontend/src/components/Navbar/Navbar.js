@@ -24,7 +24,7 @@ export default function Navbar() {
               src="logo.png"
               alt="Brand Logo"
               className="navbar-logo"
-              style={{ width: "60px", height: "auto" }}
+              style={{ width: "60px", height: "40px" }}
             />
           </a>
 

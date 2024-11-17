@@ -6,7 +6,6 @@ import About from "./components/About";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import EmployeeState from "./context/emplyeeState";
-import Create from "./components/Create";
 import Alert from "./components/Alert";
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route exact path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route exact path="/create" element={<Create />} />
             </Routes>
           </div>
         </Router>

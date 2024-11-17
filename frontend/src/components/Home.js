@@ -19,8 +19,6 @@ const filteredData = dataList.filter(
   (data) => data.energy_savings.savings_percent > 0
 );
 
-console.log(filteredData);
-
 
   const chartData = {
     labels: filteredData.map((data) => {
@@ -34,13 +32,13 @@ console.log(filteredData);
     datasets: [
       {
         label: "Energy Saving Mode ON",
-        data: filteredData.map((data) => data.total_kwh), // Data for "ON"
-        backgroundColor: "rgba(54, 162, 235, 0.8)", // Blue color
+        data: filteredData.map((data) => data.total_kwh), 
+        backgroundColor: "rgba(54, 162, 235, 0.8)", 
       },
       {
         label: "Energy Saving Mode OFF",
-        data: filteredData.map((data) => data.energy_savings.savings_percent), // Data for "OFF"
-        backgroundColor: "rgba(153, 102, 255, 0.6)", // Light purple color
+        data: filteredData.map((data) => data.energy_savings.savings_percent), 
+        backgroundColor: "rgba(153, 102, 255, 0.6)", 
       },
     ],
   };
@@ -49,19 +47,19 @@ console.log(filteredData);
     responsive: true,
     plugins: {
       legend: {
-        position: "top", // Place legend at the top
+        position: "top", 
       },
     },
     scales: {
       x: {
-        stacked: true, // Stack the bars on the x-axis
+        stacked: true, 
       },
       y: {
-        stacked: true, // Stack the bars on the y-axis
+        stacked: true,
         beginAtZero: true,
         title: {
           display: true,
-          text: "Energy Consumed (kWh)", // Y-axis label
+          text: "Energy Consumed (kWh)", 
         },
       },
     },
