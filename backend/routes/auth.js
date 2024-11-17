@@ -10,7 +10,7 @@ import jwt from "jsonwebtoken";
 authRouter.post(
   "/createUser",
 
-  body("name", "Enter a valid name").isLength({ min:3 }),
+  body("name", "Enter a valid name").isLength({ min: 3 }),
   body("email", "Enter a valid email").isEmail(),
   body("password", "Password must be at least 5 characters").isLength({
     min: 5,
@@ -26,8 +26,6 @@ authRouter.post(
     }
 
     try {
-      console.log("create user");
-
       // Check whether the user with this email exists already
       let user = await User.findOne({ email: req.body.email });
       if (user) {
@@ -58,6 +56,8 @@ authRouter.post(
           }
         );
         //  Send token.
+        console.log("create user");
+
         success = true;
 
         return res.status(200).send({ success, token });
@@ -87,10 +87,10 @@ authRouter.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name,email, password } = req.body;
+    const { name, email, password } = req.body;
     try {
       let user = await User.findOne({ email });
-      if (!user) { 
+      if (!user) {
         return res.status(400).json({
           success,
           error: "Please try to login with correct credentials",

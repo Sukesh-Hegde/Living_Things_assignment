@@ -3,15 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import { dataList } from "../assets/Data";
+import Form from "./Form";
 
 export default function Home() {
+
+
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!localStorage.getItem("token")) {
-  //     navigate("/login");
-  //   }
-  // }, [navigate]);
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    }
+  }, [navigate]);
 const filteredData = dataList.filter(
   (data) => data.energy_savings.savings_percent > 0
 );
@@ -66,6 +69,7 @@ console.log(filteredData);
 
   return (
     <div className="App">
+      <Form/>
       <h3>Energy Consumption Chart</h3>
       <Bar data={chartData} options={options} />
     </div>
